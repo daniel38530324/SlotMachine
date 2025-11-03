@@ -52,5 +52,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Slot Machine.slnx"
+    "dotnet.defaultSolution": "SlotMachine.slnx"
 }

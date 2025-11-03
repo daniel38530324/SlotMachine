@@ -7,15 +7,21 @@ public class Slot : MonoBehaviour
     [SerializeField] private Transform[] icons;
     [SerializeField] private float slotSpeed = 3000;
     private bool isStop = true;
+    private Transform[] originPoints;
+
+    private void Start()
+    {
+        originPoints = points.ToArray();
+    }
     private void Update()
     {
         if(isStop) return;
         foreach(Transform item in icons)
         {
             item.Translate(0, -slotSpeed * Time.deltaTime, 0);
-            if(item.transform.position.y <= points[points.Count - 1].transform.position.y)
+            if(item.transform.position.y <= originPoints[6].transform.position.y)
             {
-                item.transform.position = points[0].transform.position;
+                item.transform.position = originPoints[0].transform.position;
             }
         }
     }
