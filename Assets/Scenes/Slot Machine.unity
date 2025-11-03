@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 1771155}
   - component: {fileID: 1771158}
   - component: {fileID: 1771157}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (1)
   m_TagString: Phone
   m_Icon: {fileID: 0}
@@ -432,7 +432,6 @@ MonoBehaviour:
   - {fileID: 1453216987}
   - {fileID: 115563776}
   - {fileID: 175940081}
-  - {fileID: 0}
   icons:
   - {fileID: 886980293}
   - {fileID: 421109134}
@@ -530,7 +529,7 @@ GameObject:
   - component: {fileID: 35675647}
   - component: {fileID: 35675650}
   - component: {fileID: 35675649}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (3)
   m_TagString: Paper airplane
   m_Icon: {fileID: 0}
@@ -680,7 +679,7 @@ GameObject:
   - component: {fileID: 92385998}
   - component: {fileID: 92386001}
   - component: {fileID: 92386000}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (5)
   m_TagString: Paper airplane
   m_Icon: {fileID: 0}
@@ -867,6 +866,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &115563778
 Rigidbody2D:
   serializedVersion: 5
@@ -953,7 +956,7 @@ GameObject:
   - component: {fileID: 154679297}
   - component: {fileID: 154679300}
   - component: {fileID: 154679299}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon
   m_TagString: Rice
   m_Icon: {fileID: 0}
@@ -1217,6 +1220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &205761859
 Rigidbody2D:
   serializedVersion: 5
@@ -1303,7 +1310,7 @@ GameObject:
   - component: {fileID: 211177109}
   - component: {fileID: 211177112}
   - component: {fileID: 211177111}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (1)
   m_TagString: footprint
   m_Icon: {fileID: 0}
@@ -1453,7 +1460,7 @@ GameObject:
   - component: {fileID: 223098161}
   - component: {fileID: 223098164}
   - component: {fileID: 223098163}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (5)
   m_TagString: joystick
   m_Icon: {fileID: 0}
@@ -1773,6 +1780,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &286283372
 Rigidbody2D:
   serializedVersion: 5
@@ -1896,6 +1907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &291570636
 Rigidbody2D:
   serializedVersion: 5
@@ -2017,7 +2032,7 @@ GameObject:
   - component: {fileID: 314146184}
   - component: {fileID: 314146187}
   - component: {fileID: 314146186}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon
   m_TagString: Rice
   m_Icon: {fileID: 0}
@@ -2167,7 +2182,7 @@ GameObject:
   - component: {fileID: 353789389}
   - component: {fileID: 353789392}
   - component: {fileID: 353789391}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (2)
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2450,6 +2465,10 @@ MonoBehaviour:
   - {fileID: 1746308607}
   - {fileID: 1288049430}
   - {fileID: 291570635}
+  - {fileID: 888340052}
+  - {fileID: 1623548705}
+  - {fileID: 1491400365}
+  - {fileID: 2088986836}
   slotSpeed: 3000
 --- !u!1 &406276397
 GameObject:
@@ -2539,7 +2558,7 @@ GameObject:
   - component: {fileID: 421109135}
   - component: {fileID: 421109138}
   - component: {fileID: 421109137}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (1)
   m_TagString: Phone
   m_Icon: {fileID: 0}
@@ -2689,7 +2708,7 @@ GameObject:
   - component: {fileID: 442835815}
   - component: {fileID: 442835818}
   - component: {fileID: 442835817}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (6)
   m_TagString: Camera
   m_Icon: {fileID: 0}
@@ -2876,6 +2895,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &485304605
 Rigidbody2D:
   serializedVersion: 5
@@ -2962,7 +2985,7 @@ GameObject:
   - component: {fileID: 503713980}
   - component: {fileID: 503713983}
   - component: {fileID: 503713982}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (5)
   m_TagString: joystick
   m_Icon: {fileID: 0}
@@ -3440,6 +3463,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &634745468
 Rigidbody2D:
   serializedVersion: 5
@@ -3799,7 +3826,7 @@ GameObject:
   - component: {fileID: 737760821}
   - component: {fileID: 737760824}
   - component: {fileID: 737760823}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (4)
   m_TagString: footprint
   m_Icon: {fileID: 0}
@@ -4060,7 +4087,7 @@ GameObject:
   - component: {fileID: 808010066}
   - component: {fileID: 808010069}
   - component: {fileID: 808010068}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (3)
   m_TagString: Paper airplane
   m_Icon: {fileID: 0}
@@ -4430,7 +4457,7 @@ GameObject:
   - component: {fileID: 875781163}
   - component: {fileID: 875781166}
   - component: {fileID: 875781165}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (2)
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -4580,7 +4607,7 @@ GameObject:
   - component: {fileID: 882845528}
   - component: {fileID: 882845531}
   - component: {fileID: 882845530}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (5)
   m_TagString: joystick
   m_Icon: {fileID: 0}
@@ -4730,7 +4757,7 @@ GameObject:
   - component: {fileID: 886980294}
   - component: {fileID: 886980297}
   - component: {fileID: 886980296}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon
   m_TagString: Rice
   m_Icon: {fileID: 0}
@@ -4959,6 +4986,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &888340053
 Rigidbody2D:
   serializedVersion: 5
@@ -5202,7 +5233,7 @@ GameObject:
   - component: {fileID: 990820104}
   - component: {fileID: 990820107}
   - component: {fileID: 990820106}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (3)
   m_TagString: Paper airplane
   m_Icon: {fileID: 0}
@@ -5352,7 +5383,7 @@ GameObject:
   - component: {fileID: 992916907}
   - component: {fileID: 992916910}
   - component: {fileID: 992916909}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (5)
   m_TagString: joystick
   m_Icon: {fileID: 0}
@@ -5539,6 +5570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1000582003
 Rigidbody2D:
   serializedVersion: 5
@@ -5625,7 +5660,7 @@ GameObject:
   - component: {fileID: 1006320677}
   - component: {fileID: 1006320680}
   - component: {fileID: 1006320679}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (6)
   m_TagString: Camera
   m_Icon: {fileID: 0}
@@ -5911,7 +5946,7 @@ GameObject:
   - component: {fileID: 1025515194}
   - component: {fileID: 1025515197}
   - component: {fileID: 1025515196}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (2)
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -6105,7 +6140,7 @@ GameObject:
   - component: {fileID: 1092928043}
   - component: {fileID: 1092928046}
   - component: {fileID: 1092928045}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (4)
   m_TagString: Camera
   m_Icon: {fileID: 0}
@@ -6400,7 +6435,7 @@ GameObject:
   - component: {fileID: 1184752711}
   - component: {fileID: 1184752714}
   - component: {fileID: 1184752713}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon
   m_TagString: Rice
   m_Icon: {fileID: 0}
@@ -6587,6 +6622,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1205006481
 Rigidbody2D:
   serializedVersion: 5
@@ -6812,7 +6851,7 @@ GameObject:
   - component: {fileID: 1253844091}
   - component: {fileID: 1253844094}
   - component: {fileID: 1253844093}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (3)
   m_TagString: Phone
   m_Icon: {fileID: 0}
@@ -7074,6 +7113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1288049431
 Rigidbody2D:
   serializedVersion: 5
@@ -7197,6 +7240,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1374469816
 Rigidbody2D:
   serializedVersion: 5
@@ -7355,6 +7402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1453216989
 Rigidbody2D:
   serializedVersion: 5
@@ -7577,6 +7628,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1491400366
 Rigidbody2D:
   serializedVersion: 5
@@ -7663,7 +7718,7 @@ GameObject:
   - component: {fileID: 1525509783}
   - component: {fileID: 1525509786}
   - component: {fileID: 1525509785}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (1)
   m_TagString: Phone
   m_Icon: {fileID: 0}
@@ -7813,7 +7868,7 @@ GameObject:
   - component: {fileID: 1541007381}
   - component: {fileID: 1541007384}
   - component: {fileID: 1541007383}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8172,6 +8227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1623548706
 Rigidbody2D:
   serializedVersion: 5
@@ -8293,7 +8352,7 @@ GameObject:
   - component: {fileID: 1629781124}
   - component: {fileID: 1629781127}
   - component: {fileID: 1629781126}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (4)
   m_TagString: footprint
   m_Icon: {fileID: 0}
@@ -8694,6 +8753,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1697930667
 Rigidbody2D:
   serializedVersion: 5
@@ -8780,7 +8843,7 @@ GameObject:
   - component: {fileID: 1701442881}
   - component: {fileID: 1701442884}
   - component: {fileID: 1701442883}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (1)
   m_TagString: Phone
   m_Icon: {fileID: 0}
@@ -9105,6 +9168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1746308608
 Rigidbody2D:
   serializedVersion: 5
@@ -9191,7 +9258,7 @@ GameObject:
   - component: {fileID: 1811318991}
   - component: {fileID: 1811318994}
   - component: {fileID: 1811318993}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (6)
   m_TagString: Camera
   m_Icon: {fileID: 0}
@@ -9383,7 +9450,7 @@ GameObject:
   - component: {fileID: 1820709986}
   - component: {fileID: 1820709989}
   - component: {fileID: 1820709988}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (6)
   m_TagString: Camera
   m_Icon: {fileID: 0}
@@ -9533,7 +9600,7 @@ GameObject:
   - component: {fileID: 1828153094}
   - component: {fileID: 1828153097}
   - component: {fileID: 1828153096}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (2)
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -9962,6 +10029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1915011744
 Rigidbody2D:
   serializedVersion: 5
@@ -10120,6 +10191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1945204152
 Rigidbody2D:
   serializedVersion: 5
@@ -10243,6 +10318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &1951123512
 Rigidbody2D:
   serializedVersion: 5
@@ -10466,7 +10545,7 @@ GameObject:
   - component: {fileID: 2008401776}
   - component: {fileID: 2008401779}
   - component: {fileID: 2008401778}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (4)
   m_TagString: footprint
   m_Icon: {fileID: 0}
@@ -10752,7 +10831,7 @@ GameObject:
   - component: {fileID: 2042054486}
   - component: {fileID: 2042054489}
   - component: {fileID: 2042054488}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (6)
   m_TagString: Rice
   m_Icon: {fileID: 0}
@@ -10902,7 +10981,7 @@ GameObject:
   - component: {fileID: 2056596964}
   - component: {fileID: 2056596967}
   - component: {fileID: 2056596966}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (2)
   m_TagString: joystick
   m_Icon: {fileID: 0}
@@ -11089,6 +11168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d1e16823c43a4f902ec1ec79cb9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
 --- !u!50 &2088986837
 Rigidbody2D:
   serializedVersion: 5
@@ -11302,7 +11385,7 @@ GameObject:
   - component: {fileID: 2127994051}
   - component: {fileID: 2127994054}
   - component: {fileID: 2127994053}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -11452,7 +11535,7 @@ GameObject:
   - component: {fileID: 2136304995}
   - component: {fileID: 2136304998}
   - component: {fileID: 2136304997}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Icon (3)
   m_TagString: Paper airplane
   m_Icon: {fileID: 0}

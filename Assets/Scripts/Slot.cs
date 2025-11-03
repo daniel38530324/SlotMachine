@@ -34,23 +34,26 @@ public class Slot : MonoBehaviour
     public void Stop()
     {
         isStop = true;
-        
-        foreach(Transform item in icons)
+        foreach (Transform item in icons)
         {
-            int num = 0;
             float minDistance = Mathf.Infinity;
-            
-            foreach (Transform point in points)
+            int closestIndex = -1;
+
+            for (int i = 0; i < points.Count; i++)
             {
-                float currentDistance = Vector3.Distance(item.position, point.position);
-                if(currentDistance < minDistance)
+                float currentDistance = Vector3.Distance(item.position, points[i].position);
+                if (currentDistance < minDistance)
                 {
                     minDistance = currentDistance;
-                    item.transform.position = point.transform.position;
-                    num = points.IndexOf(point);
+                    closestIndex = i;
                 }
             }
-            points.RemoveAt(num);
+
+            if (closestIndex != -1)
+            {
+                item.position = points[closestIndex].position;
+                points.RemoveAt(closestIndex);
+            }
         }
     }
 }
