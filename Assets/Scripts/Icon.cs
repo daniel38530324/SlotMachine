@@ -14,12 +14,13 @@ public class Icon : MonoBehaviour
     {
         if (isCollider)
         {
+            isCollider = false;
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
 
             foreach (Collider2D hit in hits)
             {
                 tag = hit.gameObject.tag;
-                Debug.Log("偵測到2D物件：" + hit.name);
+                //Debug.Log("偵測到2D物件：" + hit.name);
             }
         }
     }

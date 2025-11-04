@@ -1,17 +1,18 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Slot : MonoBehaviour
 {
-    [SerializeField] private List<Transform> points;
+    [SerializeField] private Transform[] points;
     [SerializeField] private Transform[] icons;
     [SerializeField] private float slotSpeed = 3000;
     private bool isStop = true;
-    private Transform[] originPoints;
+    private List<Transform> tempPoints;
 
     private void Start()
     {
-        originPoints = points.ToArray();
+        tempPoints = points.ToList();
     }
     private void Update()
     {
@@ -19,9 +20,9 @@ public class Slot : MonoBehaviour
         foreach(Transform item in icons)
         {
             item.Translate(0, -slotSpeed * Time.deltaTime, 0);
-            if(item.transform.position.y <= originPoints[6].transform.position.y)
+            if(item.transform.position.y <= points[6].transform.position.y)
             {
-                item.transform.position = originPoints[0].transform.position;
+                item.transform.position = points[0].transform.position;
             }
         }
     }
@@ -39,9 +40,9 @@ public class Slot : MonoBehaviour
             float minDistance = Mathf.Infinity;
             int closestIndex = -1;
 
-            for (int i = 0; i < points.Count; i++)
+            for (int i = 0; i < tempPoints.Count; i++)
             {
-                float currentDistance = Vector3.Distance(item.position, points[i].position);
+                float currentDistance = Vector3.Distance(item.position, tempPoints[i].position);
                 if (currentDistance < minDistance)
                 {
                     minDistance = currentDistance;
@@ -51,9 +52,11 @@ public class Slot : MonoBehaviour
 
             if (closestIndex != -1)
             {
-                item.position = points[closestIndex].position;
-                points.RemoveAt(closestIndex);
+                item.position = tempPoints[closestIndex].position;
+                tempPoints.RemoveAt(closestIndex);
             }
         }
+
+        tempPoints = points.ToList();
     }
 }
