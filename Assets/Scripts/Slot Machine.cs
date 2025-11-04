@@ -14,6 +14,7 @@ public class SlotMachine : MonoBehaviour
     [SerializeField] private UILineRenderer prizeLine;
     [SerializeField] private GameObject addScore;
     [SerializeField] private Button startButton, stopButton;
+    [SerializeField] private TMP_Text dialogText;
     [SerializeField] private Slot[] slots;
     [SerializeField] private Icon[] icons;
 
@@ -82,7 +83,7 @@ public class SlotMachine : MonoBehaviour
         score -= bet;
         startButton.interactable = false;
         stopButton.interactable = true;
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "分數: " + score.ToString();
 
         foreach (Slot item in slots)
         {
@@ -101,6 +102,8 @@ public class SlotMachine : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
+
+        Setdialog(false);
     }
 
     public void Stop()
@@ -181,7 +184,7 @@ public class SlotMachine : MonoBehaviour
             {icons[3].tag, icons[7].tag, icons[11].tag, icons[15].tag, icons[19].tag}
         };
 
-        int winLineCount = 0;
+        int winLineCount = 0, winScore = 0;
 
         foreach (var line in paylines)
         {
@@ -209,19 +212,24 @@ public class SlotMachine : MonoBehaviour
                 switch(count)
                 {
                     case 3:
-                    addScore.GetComponent<TMP_Text>().text = "+" + (bet * 3).ToString();
-                    score += bet * 3;
+                        winScore += bet * 3;
+                        addScore.GetComponent<TMP_Text>().text = "+" + (bet * 3).ToString();
+                        score += bet * 3;
                         break;
                     case 4:
-                    addScore.GetComponent<TMP_Text>().text = "+" + (bet * 4).ToString();
-                    score += bet * 4;
+                        winScore += bet * 4;
+                        addScore.GetComponent<TMP_Text>().text = "+" + (bet * 4).ToString();
+                        score += bet * 4;
                         break;
                     case 5:
-                    addScore.GetComponent<TMP_Text>().text = "+" + (bet * 5).ToString();
-                    score += bet * 5;
+                        winScore += bet * 5;
+                        addScore.GetComponent<TMP_Text>().text = "+" + (bet * 4).ToString();
+                        score += bet * 5;
                         break;
                 }
-                scoreText.text = "Score: " + score.ToString();
+                scoreText.text = "分數: " + score.ToString();
+                dialogText.text = "你贏得 " + winScore + " 點";
+                Setdialog(true);
 
                 UILineRenderer newLine = Instantiate(prizeLine, prizeLine.transform);
                 newLine.ResetSelf();
@@ -252,6 +260,11 @@ public class SlotMachine : MonoBehaviour
                 Instantiate(addScore.gameObject, pointRectTransform[midIndex].transform.position, Quaternion.identity, transform);
             }
             startButton.interactable = true;
+        }
+        if(winLineCount == 0)
+        {
+            dialogText.text = "再接再厲";
+            Setdialog(true);
         }
     }
 
@@ -287,5 +300,17 @@ public class SlotMachine : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         CheckIcon();
+    }
+
+    private void Setdialog(bool isActive)
+    {
+        if(isActive)
+        {
+            dialogText.transform.parent.gameObject.SetActive(true);
+        }
+        else
+        {
+            dialogText.transform.parent.gameObject.SetActive(false);
+        }
     }
 }
