@@ -15,6 +15,7 @@ public class SlotMachine : MonoBehaviour
     [SerializeField] private GameObject addScore;
     [SerializeField] private Button startButton, stopButton;
     [SerializeField] private TMP_Text dialogText;
+    [SerializeField] private Material lineMaterial;
     [SerializeField] private Slot[] slots;
     [SerializeField] private Icon[] icons;
 
@@ -79,11 +80,36 @@ public class SlotMachine : MonoBehaviour
     
     public void Begin()
     {
+        if(betInput.text == "")
+        {
+            dialogText.text = "請下注";
+            return;
+        }
+
         bet = int.Parse(betInput.text);
+        if(score - bet < 0)
+        {
+            dialogText.text = "點數不足";
+            return;
+        }
         score -= bet;
         startButton.interactable = false;
         stopButton.interactable = true;
         scoreText.text = "分數: " + score.ToString();
+
+        for (int i = slots.Length - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            Slot temp = slots[i];
+            slots[i] = slots[j];
+            slots[j] = temp;
+        }
+
+        // slots[0].slotSpeed = 6000;
+        // slots[1].slotSpeed = 6000;
+        // slots[2].slotSpeed = 6000;
+        // slots[3].slotSpeed = 3000;
+        // slots[4].slotSpeed = 3000;
 
         foreach (Slot item in slots)
         {
@@ -207,7 +233,7 @@ public class SlotMachine : MonoBehaviour
             if (count >= 3)
             {
                 winLineCount++;
-                Debug.Log($"中獎線！符號 {firstSymbol} × {count} -- {paylines.IndexOf(line)}號線");
+                Debug.Log($"中獎線！符號 {firstSymbol} × {count} -- {paylines.IndexOf(line) + 1}號線");
 
                 switch(count)
                 {
@@ -233,23 +259,34 @@ public class SlotMachine : MonoBehaviour
 
                 UILineRenderer newLine = Instantiate(prizeLine, prizeLine.transform);
                 newLine.ResetSelf();
-                newLine.SetWidth(15f);
+                newLine.SetWidth(60f);
                 newLine.SetPoints(pointRectTransform);
+                newLine.SetLineColor(Color.white);
 
-                switch(winLineCount)
-                {
-                    case 1:
-                        newLine.SetLineColor(Color.red);
-                        break;
-                    case 2:
-                        newLine.SetLineColor(Color.blue);
-                        break;
-                    default:
-                        newLine.SetLineColor(Random.ColorHSV(0f, 1f, 1f, 1f, 0.8f, 1f));
-                        break;
-                }
-                
-                StartCoroutine(BlinkLine(newLine, 0.5f, 4));
+                Color color = Color.HSVToRGB(Random.value, 1, 1);
+                color *= 5;  
+                color.a = 1f;
+                lineMaterial.color = color;
+
+                // switch(winLineCount)
+                // {
+                //     case 1:
+                //         newLine.SetLineColor(Color.red);
+                //         break;
+                //     case 2:
+                //         newLine.SetLineColor(Color.blue);
+                //         break;
+                //     default:
+                //         newLine.SetLineColor(Random.ColorHSV(0f, 1f, 1f, 1f, 0.8f, 1f));
+                //         break;
+                // }
+
+                // Color color = Random.ColorHSV(0f, 1f, 0.8f, 1f, 0.8f, 1f);
+                // color *= intensity;  
+                // color.a = 1f;      
+                // return color;
+
+                StartCoroutine(BlinkLine(newLine, 0.5f, 3));
 
                 foreach (var icon in pointRectTransform)
                 {
@@ -290,7 +327,7 @@ public class SlotMachine : MonoBehaviour
         foreach (Slot item in slots)
         {
             item.Stop();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
 
         foreach (Icon item in icons)
@@ -298,7 +335,7 @@ public class SlotMachine : MonoBehaviour
             item.SetCollider(true);
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         CheckIcon();
     }
 

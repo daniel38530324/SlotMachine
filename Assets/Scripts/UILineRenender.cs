@@ -9,6 +9,30 @@ public class UILineRenderer : Graphic
     [SerializeField] private float lineWidth = 5f;
     [SerializeField] private Color lineColor = Color.white;
 
+    [SerializeField] private Material customMaterial;
+
+    public override Material material
+    {
+        get
+        {
+            if (customMaterial != null)
+                return customMaterial;
+            return base.material;
+        }
+        set
+        {
+            customMaterial = value;
+        }
+    }
+    public override Texture mainTexture
+    {
+        get
+        {
+            if (material != null && material.mainTexture != null)
+                return material.mainTexture;
+            return s_WhiteTexture;
+        }
+    }
     protected override void OnPopulateMesh(VertexHelper vh)
     {
         vh.Clear();
@@ -16,35 +40,97 @@ public class UILineRenderer : Graphic
         if (points == null || points.Count < 2)
             return;
 
+        float totalLength = 0f;
+        for (int i = 0; i < points.Count - 1; i++)
+            totalLength += Vector2.Distance(points[i], points[i + 1]);
+
+        float currentLength = 0f;
+
         for (int i = 0; i < points.Count - 1; i++)
         {
             Vector2 start = points[i];
             Vector2 end = points[i + 1];
+            float segmentLength = Vector2.Distance(start, end);
 
             Vector2 direction = (end - start).normalized;
             Vector2 perpendicular = new Vector2(-direction.y, direction.x) * lineWidth / 2f;
 
-            // 建立矩形的四個頂點
-            UIVertex vertex = UIVertex.simpleVert;
-            vertex.color = lineColor;
+            // 將 UV x 根據線段位置平均分配
+            float uvStart = currentLength / totalLength;
+            float uvEnd = (currentLength + segmentLength) / totalLength;
+            currentLength += segmentLength;
 
-            vertex.position = start - perpendicular;
-            vh.AddVert(vertex);
+            // === 左下 ===
+            UIVertex v0 = UIVertex.simpleVert;
+            v0.color = lineColor;
+            v0.position = start - perpendicular;
+            v0.uv0 = new Vector2(uvStart, 0);
 
-            vertex.position = start + perpendicular;
-            vh.AddVert(vertex);
+            // === 左上 ===
+            UIVertex v1 = UIVertex.simpleVert;
+            v1.color = lineColor;
+            v1.position = start + perpendicular;
+            v1.uv0 = new Vector2(uvStart, 1);
 
-            vertex.position = end + perpendicular;
-            vh.AddVert(vertex);
+            // === 右上 ===
+            UIVertex v2 = UIVertex.simpleVert;
+            v2.color = lineColor;
+            v2.position = end + perpendicular;
+            v2.uv0 = new Vector2(uvEnd, 1);
 
-            vertex.position = end - perpendicular;
-            vh.AddVert(vertex);
+            // === 右下 ===
+            UIVertex v3 = UIVertex.simpleVert;
+            v3.color = lineColor;
+            v3.position = end - perpendicular;
+            v3.uv0 = new Vector2(uvEnd, 0);
 
-            int index = i * 4;
+            int index = vh.currentVertCount;
+            vh.AddVert(v0);
+            vh.AddVert(v1);
+            vh.AddVert(v2);
+            vh.AddVert(v3);
+
             vh.AddTriangle(index, index + 1, index + 2);
             vh.AddTriangle(index, index + 2, index + 3);
         }
     }
+
+    // protected override void OnPopulateMesh(VertexHelper vh)
+    // {
+    //     vh.Clear();
+
+    //     if (points == null || points.Count < 2)
+    //         return;
+
+    //     for (int i = 0; i < points.Count - 1; i++)
+    //     {
+    //         Vector2 start = points[i];
+    //         Vector2 end = points[i + 1];
+
+    //         Vector2 direction = (end - start).normalized;
+    //         Vector2 perpendicular = new Vector2(-direction.y, direction.x) * lineWidth / 2f;
+
+    //         // 建立矩形的四個頂點
+    //         UIVertex vertex = UIVertex.simpleVert;
+    //         vertex.color = lineColor;
+
+    //         vertex.position = start - perpendicular;
+    //         vh.AddVert(vertex);
+
+    //         vertex.position = start + perpendicular;
+    //         vh.AddVert(vertex);
+
+    //         vertex.position = end + perpendicular;
+    //         vh.AddVert(vertex);
+
+    //         vertex.position = end - perpendicular;
+    //         vh.AddVert(vertex);
+
+    //         int index = i * 4;
+    //         vh.AddTriangle(index, index + 1, index + 2);
+    //         vh.AddTriangle(index, index + 2, index + 3);
+    //     }
+    // }
 
     /// <summary>
     /// 新增一個 UI 節點 (會依序連成折線)
@@ -59,7 +145,7 @@ public class UILineRenderer : Graphic
             out localPoint
         );
 
-        points.Add(localPoint); // ✅ 不再刪除舊點
+        points.Add(localPoint); //不再刪除舊點
         SetVerticesDirty();
     }
 

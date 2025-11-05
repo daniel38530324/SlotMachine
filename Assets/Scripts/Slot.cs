@@ -4,9 +4,11 @@ using System.Linq;
 
 public class Slot : MonoBehaviour
 {
+    public float slotSpeed { get; set; } = 3000;
+    
     [SerializeField] private Transform[] points;
     [SerializeField] private Transform[] icons;
-    [SerializeField] private float slotSpeed = 3000;
+    
     private bool isStop = true;
     private List<Transform> tempPoints;
 
